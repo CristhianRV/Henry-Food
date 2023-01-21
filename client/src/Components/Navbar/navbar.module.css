@@ -1,0 +1,12 @@
+.container{
+    background-color: rgb(3, 146, 108);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid wheat;
+    border-radius: 15px;
+    
+}
+.opciones {
+    color: white;
+}
