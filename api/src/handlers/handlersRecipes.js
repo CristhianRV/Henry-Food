@@ -1,10 +1,21 @@
-const { createRecip, searchID } = require("../controllers/recipeControllers.js");
+const { createRecip, searchID, searchName, searchAll } = require("../controllers/recipeControllers.js");
 
 
 
 
-const searchRecipes = (req, res)=>{// para las queries
-    res.status(200).send("Estoy en Recipes");
+const searchRecipes = async (req, res)=>{// para las queries
+    //Obtener un listado de las recetas que contengan la palabra ingresada como query parameter
+    //Si no existe ninguna receta mostrar un mensaje adecuado
+
+    const { name } = req.query;
+    
+    try {
+        const recetas = name?await searchName(name): await searchAll();
+        res.status(200).json(recetas);
+    } catch (error) {   
+        res.status(400).json({error:error.message})
+    }
+
 }
 
 const recipeId =async (req, res)=>{//Para el detalle por id
@@ -18,19 +29,16 @@ const recipeId =async (req, res)=>{//Para el detalle por id
         res.status(400).json({error:error.message});
         
     }
-
-
-
-    res.status(200).send(id);
-
 }
 
+
 const createRecipe = async (req, res)=>{
+
+    const { name, description, healthScore, preparation, diets, image } = req.body;
     
     try {
-        const { name, description, healthScore, preparation, image } = req.body;
-
-        const newRecipe =await createRecip(name, description, healthScore, preparation, image);
+        
+        const newRecipe =await createRecip(name, description, healthScore, preparation, diets, image);
         res.status(201).json(newRecipe);
 
         
