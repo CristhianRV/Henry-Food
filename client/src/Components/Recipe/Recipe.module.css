@@ -1,11 +1,13 @@
-.containerRecipe{
-    margin: 10px;
-    background-color: rgba(245, 222, 179, 0.147);
-    display: flex;
-    flex-direction: column;
-    width: 20em;
-    height: 20em;
-    border: 1px solid wheat;
-    border-radius: 15px;
-
+.containerRecipe {
+  margin: 10px;
+  background-color: rgba(245, 222, 179, 0.147);
+  display: flex;
+  flex-direction: column;
+  width: 20em;
+  height: 24em;
+  border: 1px solid rgb(179, 245, 201);
+  border-radius: 15px;
+}
+p {
+  color: rgb(145, 208, 153);
 }

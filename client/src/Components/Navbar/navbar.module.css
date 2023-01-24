@@ -1,12 +1,65 @@
-.container{
-    background-color: rgb(3, 146, 108);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border: 1px solid wheat;
-    border-radius: 15px;
-    
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  background-color: rgb(3, 146, 108);
+  border: 1px solid wheat;
+  /* width: 100%;
+  position: fixed; */
 }
+
+h1 {
+  color: white;
+  font-weight: bold;
+  margin-left: -5em;
+  margin-top: -1px;
+  margin-bottom: -0.5px;
+  font-size: 40px;
+}
+span {
+  font-weight: 400;
+}
+
+.menus {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: -10em;
+}
+
 .opciones {
-    color: white;
+  color: white;
+}
+
+.containerSearch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.searchBar {
+  display: flex;
+  background-color: white;
+  padding: 9px 22px 9px 26px;
+  border-radius: 30px;
+  border: 2px solid #cad3dc;
+}
+
+input {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  padding-left: 24px;
+  background-image: url(../../../img/lupa.png);
+  width: 0px;
+  background-repeat: no-repeat;
+  transition: 0.6s;
+}
+input:focus {
+  outline: none;
+  width: 300px;
+}
+
+h3 {
+  text-decoration: none;
 }

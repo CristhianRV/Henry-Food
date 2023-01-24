@@ -8,6 +8,8 @@ const Recipes = (props) => {
       {props.recipes.map((recipe) => {
         return (
           <Recipe
+            key={recipe.id}
+            id={recipe.id}
             name={recipe.name}
             description={recipe.description}
             healtScore={recipe.healthScore}
@@ -26,6 +28,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {};
+// const mapDispatchToProps = (dispatch) => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
+export default connect(mapStateToProps)(Recipes);
