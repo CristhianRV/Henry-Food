@@ -1,0 +1,64 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 65% 15%;
+  justify-content: center;
+  background-image: url(../../../img/fondo2.png);
+  height: 100vh;
+}
+.logo {
+  margin-top: 3em;
+  margin-left: 20em;
+}
+.titulo {
+  font-size: 70px;
+}
+.containeringreso {
+  /* background-color: bisque; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.panel {
+  background-color: rgba(170, 159, 4, 0.562);
+  border: 3px solid white;
+  border-radius: 12px;
+  margin-bottom: 45px;
+  width: 30em;
+  height: 30em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.button {
+  background-color: rgb(1, 123, 15);
+  margin-bottom: 7em;
+  width: 15em;
+  height: 3em;
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 20px;
+  overflow: hidden;
+  transition: 0.5s;
+  border: none;
+  border-radius: 15px;
+}
+.button:hover {
+  background-color: rgb(9, 218, 34);
+  box-shadow: 0 0 10px rgb(9, 218, 34), 0 0 40px rgb(9, 218, 34),
+    0 0 80px rgb(9, 218, 34);
+}
+
+.containerText {
+  background-color: rgba(239, 211, 51, 0.678);
+}
+.texto {
+  color: white;
+  font-size: 70px;
+  margin: 0%;
+  padding-top: 10px;
+}

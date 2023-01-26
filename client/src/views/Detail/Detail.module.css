@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2em;
+}
+
+.titulo {
+  color: rgba(9, 163, 79, 0.877);
+}
+
+/* img {
+  margin: 1em;
+  border-radius: 10px;
+  width: 50em;
+  height: 30em;
+} */
+
+.containerText {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  justify-content: center;
+}
+/* h1 {
+  margin-left: 10em;
+  font-size: 85px;
+}
+p {
+  font-size: 20px;
+} */

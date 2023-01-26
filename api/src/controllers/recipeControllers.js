@@ -4,7 +4,7 @@ const { cleanApi } = require("../utils/funciones.js");
 const axios = require("axios");
 const { Op } = require("sequelize");
 require("dotenv").config;
-const { API_KEY2 } = process.env;
+const { API_KEY1 } = process.env;
 
 const searchAll = async () => {
   const dataApiRow = (
@@ -61,10 +61,9 @@ const searchID = async (id, source) => {
   const recipe =
     source === "api"
       ? (
-          await axios
-            .get
-            // `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY2}`
-            ()
+          await axios.get(
+            `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY1}`
+          )
         ).data
       : await Recipe.findByPk(id);
 
@@ -92,11 +91,13 @@ const createRecip = async (
   diets,
   image
 ) => {
+  console.log("Llegue a crear");
   const newRecip = await Recipe.create({
     name,
     description,
     healthScore,
     preparation,
+    diets,
     image,
   });
   const dietas = await Diet.findAll({ where: { name: diets } });

@@ -1,0 +1,20 @@
+.containerForm {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0f176c;
+  opacity: 0.98;
+  z-index: 300;
+  user-select: none;
+}
+
+.failed {
+  border: 1px solid red;
+}
+
+.great {
+  border: 1px solid green;
+}
