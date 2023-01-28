@@ -6,10 +6,19 @@ import Filter from "../../Components/Filter/Filter";
 import style from "./Home.module.css";
 
 const Home = () => {
-  const allRecipes = useSelector((state) => state.recipesFilters);
+  const allRe = useSelector((state) => state.recipesFilters);
+  const ordered = useSelector((state) => state.ordered);
+
+  //Para odenar de manera ascendente/descente
+  const allRecipes = ordered
+    ? allRe.sort((x, y) => x.name.localeCompare(y.name))
+    : allRe.reverse((x, y) => x.name.localeCompare(y.name));
+
+  //Para el paginado
   const [current, setCurrent] = useState(1);
   const recetas = allRecipes?.slice((current - 1) * 9, current * 9);
 
+  //Controles del paginado
   const handlerNext = () => {
     const large = allRecipes.length;
     const Pagination = Math.ceil(large / 9);

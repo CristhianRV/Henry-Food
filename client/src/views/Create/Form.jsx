@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./Form.module.css";
 import axios from "axios";
 
@@ -20,10 +21,7 @@ const Form = () => {
       ...form,
       [property]: value,
     });
-    // validate(form);
   };
-
-  //   const validate = (form) => {};
 
   const handleForm = async (event) => {
     event.preventDefault();
@@ -35,6 +33,9 @@ const Form = () => {
 
   return (
     <div className={style.containerForm}>
+      <Link to="/home">
+        <button>x</button>
+      </Link>
       <form onSubmit={handleForm}>
         <div>
           <label>Name:</label>

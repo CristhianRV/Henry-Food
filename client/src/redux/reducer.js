@@ -4,6 +4,7 @@ import {
   GET_RECIPE_ID,
   GET_DIETS,
   GET_FILTER,
+  ORDERED_RECIPES,
 } from "./actions";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   recipesFilters: [],
   diets: [],
   recipe: {},
+  ordered: true,
 };
 
 const rootReducer = (state = initialState, actions) => {
@@ -45,6 +47,11 @@ const rootReducer = (state = initialState, actions) => {
       return {
         ...state,
         recipesFilters: actions.payload,
+      };
+    case ORDERED_RECIPES:
+      return {
+        ...state,
+        ordered: !state.ordered,
       };
 
     default:
