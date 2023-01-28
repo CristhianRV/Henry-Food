@@ -1,25 +1,37 @@
-const {Diet} = require("../db.js");
+const { Diet } = require("../db.js");
+const { Recipe } = require("../db.js");
 
+const ListDiets = async () => {
+  const diets = [
+    "gluten free",
+    "paleolithic",
+    "vegetarian",
+    "lacto ovo vegetarian",
+    "vegan",
+    "pescatarian",
+    "primal",
+    "whole 30",
+    "fodmap friendly",
+    "dairyFree",
+  ];
 
-  const ListDiets = async ()=>{
+  diets.forEach(async (diet) => Diet.create({ name: diet }));
+};
 
-    const diets = [
-        "gluten free",
-        "paleolithic",
-        "vegetarian",
-        "lacto ovo vegetarian",
-        "vegan",
-        "pescatarian",
-        "primal",
-        "whole 30",
-        "fodmap friendly",
-        "dairyFree",
-      ];
+const getDiets = async () => {
+  const dietas = await Diet.findAll({
+    include: {
+      model: Recipe,
+      attributes: [
+        "name",
+        "description",
+        "healthScore",
+        "preparation",
+        "image",
+      ],
+    },
+  });
+  return dietas;
+};
 
-      diets.forEach(async (diet)=> Diet.findOrCreate({where: {name:diet}}))
-      
-         
-
-  }
-
-  module.exports = {ListDiets}
+module.exports = { ListDiets, getDiets };

@@ -1,0 +1,4 @@
+.containerRecipes {
+  display: grid;
+  grid-template-columns: auto 80%;
+}

@@ -1,33 +1,30 @@
 import Recipe from "../Recipe/Recipe";
 import style from "./Recipes.module.css";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 
-const Recipes = (props) => {
-  return (
-    <div className={style.containerRecipes}>
-      {props.recipes.map((recipe) => {
-        return (
-          <Recipe
-            key={recipe.id}
-            id={recipe.id}
-            name={recipe.name}
-            description={recipe.description}
-            healtScore={recipe.healthScore}
-            diets={recipe.diets}
-            image={recipe.image}
-          />
-        );
-      })}
-    </div>
-  );
-};
+class Recipes extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className={style.containerRecipes}>
+        {this.props.recipes.map((recipe) => {
+          return (
+            <Recipe
+              key={recipe.id}
+              id={recipe.id}
+              name={recipe.name}
+              description={recipe.description}
+              healtScore={recipe.healthScore}
+              diets={recipe.diets}
+              image={recipe.image}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+}
 
-const mapStateToProps = (state) => {
-  return {
-    recipes: state.recipes,
-  };
-};
-
-// const mapDispatchToProps = (dispatch) => {};
-
-export default connect(mapStateToProps)(Recipes);
+export default Recipes;

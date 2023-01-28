@@ -1,0 +1,28 @@
+.containerFilter {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80% 20%;
+}
+
+.containerDiets {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+  margin-top: 25px;
+  margin-left: 15px;
+}
+
+.diets {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px;
+  font-size: 20px;
+}
+.diets:hover {
+  color: rgb(6, 212, 6);
+}
+.diets:active {
+  color: rgb(83, 243, 83);
+}

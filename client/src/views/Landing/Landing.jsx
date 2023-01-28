@@ -2,10 +2,6 @@ import style from "./Landing.module.css";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
-  // const direction = () => {
-  //   alert("Estoy en el landig ");
-  // };
-
   return (
     <div className={style.container}>
       <div className={style.logo}>

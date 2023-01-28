@@ -1,10 +1,18 @@
 import "./App.css";
 import { Route, useLocation } from "react-router-dom";
 import { Landing, Home, Detail, Form } from "./views";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import NavBar from "./Components/Navbar/NavBar";
+import { getRecipes } from "./redux/actions";
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, [dispatch]);
 
   return (
     <div className="App">

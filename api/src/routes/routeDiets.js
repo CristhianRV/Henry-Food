@@ -1,9 +1,8 @@
-const { Router }= require("express");
-const { listDiets } = require("../handlers/handlersDiets.js")
+const { Router } = require("express");
+const { getAllDiets } = require("../handlers/handlersDiets.js");
 
 const dietsRoute = Router();
 
-dietsRoute.get("/",listDiets);
-
+dietsRoute.get("/", getAllDiets);
 
 module.exports = dietsRoute;

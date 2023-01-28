@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 import { useDispatch } from "react-redux";
@@ -18,18 +18,15 @@ const NavBar = () => {
       ...value,
       input: valueInt,
     });
+    dispatch(getRecipesName(event.target.value));
   };
 
   const handleSearch = (event) => {
     setValue({
       ...value,
       input: "",
-      output: event.target.value,
     });
   };
-  useEffect(() => {
-    dispatch(getRecipesName(value.output));
-  }, [value.output]);
 
   return (
     <nav className={style.container}>
@@ -54,8 +51,12 @@ const NavBar = () => {
             onChange={search}
             value={value.input}
           />
-          <button onClick={handleSearch} value={value.input}>
-            BUSCAR
+          <button
+            className={style.button}
+            onClick={handleSearch}
+            value={value.input}
+          >
+            🔍
           </button>
         </div>
       </div>

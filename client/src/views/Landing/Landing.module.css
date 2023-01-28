@@ -8,10 +8,11 @@
 }
 .logo {
   margin-top: 3em;
-  margin-left: 20em;
+  margin-left: 10em;
 }
 .titulo {
   font-size: 70px;
+  color: white;
 }
 .containeringreso {
   /* background-color: bisque; */
