@@ -33,6 +33,7 @@ const NavBar = () => {
       <h1 className={style.title1}>
         Henry<span className={style.title2}>FOOD</span>
       </h1>
+
       <div className={style.menus}>
         <Link to="/home" className={style.opciones}>
           <h3 className={style.opciones}>Home</h3>

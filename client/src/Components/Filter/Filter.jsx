@@ -6,7 +6,6 @@ import { recipesOrder } from "../../redux/actions";
 
 const Filter = () => {
   const dispatch = useDispatch();
-
   const dietas = useSelector((state) => state.diets);
   const allRecipes = useSelector((state) => state.recipes);
 
@@ -14,6 +13,10 @@ const Filter = () => {
     const diet = event.target.value;
     const resultado = [];
     let find = "";
+    //todas la recetas
+    // if (event.target.value === "all") console.log(allRecipes);
+
+    //Filtrar por value
 
     for (let index of allRecipes) {
       if (index.Diets) {
@@ -31,14 +34,17 @@ const Filter = () => {
     dispatch(filterRecipes(resultado));
   };
 
-  const handlerSelect = (event) => {
+  const handlerSelect = () => {
     dispatch(recipesOrder());
   };
 
   return (
     <div className={style.containerFilter}>
       <div className={style.containerDiets}>
-        <i className={style.labelDiets}>select types of diets</i>
+        <h1 className={style.labelDiets}>SELECT TYPES OF DIETS</h1>
+        <button className={style.diets} onClick={handlerDiets} value="all">
+          All Recipes
+        </button>
         {dietas.map((diet) => {
           return (
             <button
@@ -53,18 +59,15 @@ const Filter = () => {
         })}
       </div>
       <div>
-        <div className={style.checkList}>
-          <i className={style.labelOrder}>select Ordenamiento</i>
-          <select className={style.items} onChange={handlerSelect}>
-            <option className={style.item} value={true}>
-              Falling
-            </option>
-            <option className={style.item} value={false}>
-              Upward
-            </option>
-          </select>
-        </div>
-        <h1>aqui van los ordenado</h1>
+        <h3 className={style.labelOrder}>Select Ordering</h3>
+        <select className={style.items} onChange={handlerSelect}>
+          <option className={style.item} value={true}>
+            Falling
+          </option>
+          <option className={style.item} value={false}>
+            Upward
+          </option>
+        </select>
       </div>
     </div>
   );

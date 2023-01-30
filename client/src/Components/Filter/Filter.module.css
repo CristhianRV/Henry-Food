@@ -1,28 +1,48 @@
 .containerFilter {
+  margin-top: 2.5em;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80% 20%;
+  grid-template-rows: 37% 10%;
+  background-color: rgb(3, 146, 108);
+  border-radius: 5px;
+  height: 100%;
 }
 
 .containerDiets {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
-  margin-top: 25px;
   margin-left: 15px;
+  margin-top: 10px;
+}
+.labelDiets {
+  color: white;
+  -webkit-text-stroke: 0.7px rgb(0, 255, 98);
+  margin-left: -5px;
 }
 
 .diets {
+  margin-top: 5px;
   border: none;
   background-color: transparent;
   display: flex;
   justify-content: flex-start;
-  margin: 5px;
   font-size: 20px;
+  font-family: Carter;
+  color: white;
 }
 .diets:hover {
   color: rgb(6, 212, 6);
 }
 .diets:active {
   color: rgb(83, 243, 83);
+}
+.labelOrder {
+  color: white;
+  -webkit-text-stroke: 0.3px rgb(0, 255, 98);
+}
+
+.items {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  font-family: Carter;
+  color: green;
 }

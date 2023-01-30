@@ -1,5 +1,58 @@
 .container {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
+}
+
+.good {
+  background-color: rgb(8, 176, 8);
+  color: white;
+  border: 1px solid green;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.good:hover {
+  background-color: rgb(7, 184, 7);
+}
+.good:active {
+  background-color: rgb(19, 227, 19);
+}
+.bad {
+  /* background-color: rgb(2, 106, 2); */
+  color: green;
+  border: 1px solid green;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.bad:hover {
+  background-color: rgb(7, 184, 7);
+}
+.bad:active {
+  background-color: rgb(19, 227, 19);
+}
+.handler {
+  background-color: transparent;
+  color: green;
+  border: none;
+  border-radius: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+.handler:hover {
+  background-color: rgb(7, 184, 7);
+  color: white;
+}
+.handler:active {
+  background-color: rgb(19, 227, 19);
+  color: white;
 }

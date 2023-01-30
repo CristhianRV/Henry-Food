@@ -23,12 +23,20 @@ const Home = () => {
     const large = allRecipes.length;
     const Pagination = Math.ceil(large / 9);
     if (current === Pagination) return;
-    setCurrent(current + 1);
+    console.log(+current + 1);
+    setCurrent(+current + 1);
   };
 
   const handlerPre = () => {
     if (current === 1) return;
+    console.log(current - 1);
     setCurrent(current - 1);
+  };
+  // Manejador de botones de la lista
+  const secPage = (event) => {
+    const numPage = parseInt(event.target.value);
+    // console.log(current);
+    setCurrent(numPage);
   };
 
   return (
@@ -39,7 +47,13 @@ const Home = () => {
         </div>
         <div>
           <Recipes recipes={recetas} />
-          <Pagination handlerNext={handlerNext} handlerPre={handlerPre} />
+          <Pagination
+            handlerNext={handlerNext}
+            handlerPre={handlerPre}
+            secPage={secPage}
+            {...{ current }}
+            {...{ setCurrent }}
+          />
         </div>
       </div>
     </div>

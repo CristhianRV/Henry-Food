@@ -25,81 +25,131 @@ const Form = () => {
 
   const handleForm = async (event) => {
     event.preventDefault();
-    axios
-      .post("/recipes", form)
-      .then((res) => alert(res))
-      .catch((err) => alert(err));
+    if (!form.name) delete form.name;
+    if (!form.description) delete form.description;
+    console.log(form);
+    // axios
+    //   .post("/recipes", form)
+    //   .then((res) => alert(res.data))
+    //   .catch((err) => alert(err.message));
+    // //clean form
+    // setForm({
+    //   ...form,
+    //   name: "",
+    //   description: "",
+    //   healthScore: 0,
+    //   preparation: "",
+    //   diets: "",
+    //   image: "",
+    // });
   };
 
   return (
     <div className={style.containerForm}>
-      <Link to="/home">
-        <button>x</button>
-      </Link>
-      <form onSubmit={handleForm}>
-        <div>
-          <label>Name:</label>
-          <input
-            className={form.name ? style.great : style.failed}
-            type="text"
-            onChange={handleChange}
-            value={form.name}
-            name="name"
-          ></input>
-        </div>
-        <div>
-          <label>Description: </label>
-          <input
-            className={form.description ? style.great : style.failed}
-            type="text"
-            onChange={handleChange}
-            value={form.description}
-            name="description"
-          ></input>
-        </div>
-        <div>
-          <label>Health Score: </label>
-          <input
-            className={form.healthScore ? style.great : style.failed}
-            type="text"
-            onChange={handleChange}
-            value={form.healthScore}
-            name="healthScore"
-          ></input>
-        </div>
-        <div>
-          <label>Preparation: </label>
-          <input
-            className={form.preparation ? style.great : style.failed}
-            type="text"
-            onChange={handleChange}
-            value={form.preparation}
-            name="preparation"
-          ></input>
-        </div>
-        <div>
-          <label>Types Diets: </label>
-          <input
-            className={form.diets ? style.great : style.failed}
-            type="text"
-            onChange={handleChange}
-            value={form.diets}
-            name="diets"
-          ></input>
-        </div>
+      <div>
+        <Link to="/home">
+          <div className={style.btnRetroceder}></div>
+        </Link>
+      </div>
+      <div className={style.contForm}>
+        <p className={style.titulo}>Crea tu propia receta!</p>
+        <form onSubmit={handleForm} className={style.form}>
+          <div className={style.info}>
+            <label className={style.label}>Name</label>
+            <input
+              className={form.name ? style.great : style.failed}
+              type="text"
+              onChange={handleChange}
+              value={form.name}
+              name="name"
+            ></input>
+          </div>
+          <div className={style.info}>
+            <label className={style.label}>Description </label>
+            <textarea
+              className={form.description ? style.greatArea : style.failedArea}
+              onChange={handleChange}
+              value={form.description}
+              name="description"
+            ></textarea>
+          </div>
+          <div className={style.info}>
+            <label className={style.label}>Health Score </label>
+            <input
+              className={form.healthScore ? style.great : style.failed}
+              type="number"
+              onChange={handleChange}
+              value={form.healthScore}
+              name="healthScore"
 
-        <div>
-          <label>Image (url): </label>
-          <input
-            className={form.image ? style.great : style.failed}
-            type="text"
-            onChange={handleChange}
-            value={form.image}
-            name="image"
-          ></input>
-        </div>
-        <button>CREATE</button>
-      </form>
+              // className={style.intRange}
+              // type="range"
+              // min="0"
+              // max="100"
+            ></input>
+          </div>
+          <div className={style.info}>
+            <label className={style.label}>Preparation </label>
+            <textarea
+              className={form.preparation ? style.greatArea : style.failedArea}
+              onChange={handleChange}
+              value={form.preparation}
+              name="preparation"
+            ></textarea>
+          </div>
+          <div className={style.info}>
+            <label className={style.label}>Types Diets </label>
+            <select
+              name="diets"
+              className={style.select}
+              onChange={handleChange}
+            >
+              <option value="dairyFree" type="checkbox">
+                DairyFree{" "}
+              </option>
+              <option value="paleolithic" type="checkbox">
+                Paleolithic
+              </option>
+              <option value="vegan" type="checkbox">
+                Vegan
+              </option>
+              <option value="whole 30" type="checkbox">
+                Whole 30
+              </option>
+              <option value="pescatarian" type="checkbox">
+                Pescatarian
+              </option>
+              <option value="lacto ovo vegetarian" type="checkbox">
+                Lacto ovo vegetarian
+              </option>
+              <option value="gluten free" type="checkbox">
+                Gluten Free
+              </option>
+              <option value="vegetarian" type="checkbox">
+                Vegetarian
+              </option>
+              <option value="fodmap friendly" type="checkbox">
+                Fodmap Friendly
+              </option>
+              <option value="primal" type="checkbox">
+                Primal
+              </option>
+            </select>
+          </div>
+
+          <div className={style.info}>
+            <label className={style.label}>Image (url) </label>
+            <input
+              className={form.image ? style.great : style.failed}
+              type="text"
+              onChange={handleChange}
+              value={form.image}
+              name="image"
+            ></input>
+          </div>
+          <button className={style.btnForm}>CREATE</button>
+        </form>
+      </div>
     </div>
   );
 };
