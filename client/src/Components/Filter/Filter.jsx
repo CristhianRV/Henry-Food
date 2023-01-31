@@ -14,7 +14,10 @@ const Filter = () => {
     const resultado = [];
     let find = "";
     //todas la recetas
-    // if (event.target.value === "all") console.log(allRecipes);
+    if (event.target.value === "all") {
+      dispatch(filterRecipes(allRecipes));
+      return;
+    }
 
     //Filtrar por value
 
@@ -31,6 +34,7 @@ const Filter = () => {
         find = "";
       }
     }
+
     dispatch(filterRecipes(resultado));
   };
 
@@ -58,7 +62,7 @@ const Filter = () => {
           );
         })}
       </div>
-      <div>
+      <div className={style.contSearch}>
         <h3 className={style.labelOrder}>Select Ordering</h3>
         <select className={style.items} onChange={handlerSelect}>
           <option className={style.item} value={true}>

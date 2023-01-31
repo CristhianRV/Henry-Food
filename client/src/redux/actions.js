@@ -27,7 +27,6 @@ export const getRecipesName = (name) => {
 export const getRecipeId = (id) => {
   return async function (dispatch) {
     const data = await axios.get(`/recipes/${id}`);
-    console.log(data);
     dispatch({ type: GET_RECIPE_ID, payload: data.data });
   };
 };

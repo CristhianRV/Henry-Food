@@ -65,7 +65,15 @@ const searchID = async (id, source) => {
             `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY1}`
           )
         ).data
-      : await Recipe.findByPk(id);
+      : await Recipe.findByPk(id, {
+          include: {
+            model: Diet,
+            attributes: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
+        });
 
   if (source === "api") {
     return {
@@ -77,6 +85,7 @@ const searchID = async (id, source) => {
         .map((step) => step.step)
         .join(" "),
       image: recipe.image,
+      diets: recipe.diets,
     };
   }
 
@@ -91,7 +100,6 @@ const createRecip = async (
   diets,
   image
 ) => {
-  console.log("Llegue a crear");
   const newRecip = await Recipe.create({
     name,
     description,

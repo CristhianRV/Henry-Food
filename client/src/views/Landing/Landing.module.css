@@ -7,15 +7,12 @@
   height: 100vh;
 }
 .logo {
-  margin-top: 3em;
-  margin-left: 10em;
 }
 .titulo {
   font-size: 70px;
   color: white;
 }
 .containeringreso {
-  /* background-color: bisque; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,9 +46,12 @@
   border-radius: 15px;
 }
 .button:hover {
-  background-color: rgb(9, 218, 34);
-  box-shadow: 0 0 10px rgb(9, 218, 34), 0 0 40px rgb(9, 218, 34),
-    0 0 80px rgb(9, 218, 34);
+  background-color: rgb(11, 184, 31);
+  box-shadow: 0 0 10px rgb(6, 197, 28), 0 0 40px rgb(6, 197, 28),
+    0 0 80px rgb(6, 197, 28);
+}
+.button:active {
+  background-color: rgb(40, 223, 40);
 }
 
 .containerText {

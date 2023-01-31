@@ -7,9 +7,9 @@ const {
 
 const validate = (req, res, next) => {
   const { name, description } = req.body;
-  if (!name) res.status(400).json({ error: "Missing name" });
-  if (!description) res.status(400).json({ error: "Missing Description" });
-  // if (!healthScore) res.status(400).json({ error: "Missing Health Score" });
+  if (!name) return res.status(400).json({ error: "Missing name" });
+  if (!description)
+    return res.status(400).json({ error: "Missing Description" });
   console.log(req.body);
   next();
 };
@@ -20,6 +20,6 @@ recipesRoute.get("/", searchRecipes);
 
 recipesRoute.get("/:id", recipeId);
 
-recipesRoute.post("/", createRecipe);
+recipesRoute.post("/", validate, createRecipe);
 
 module.exports = recipesRoute;

@@ -1,11 +1,11 @@
 .containerFilter {
   margin-top: 2.5em;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 37% 10%;
+  /* display: grid; */
+  /* grid-template-columns: 1fr;
+  grid-template-rows: 50% 50%; */
   background-color: rgb(3, 146, 108);
   border-radius: 5px;
-  height: 100%;
+  min-height: 145vh;
 }
 
 .containerDiets {
@@ -34,6 +34,16 @@
 .diets:active {
   color: rgb(83, 243, 83);
 }
+
+/* .contSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-right: 20px;
+  position: absolute;
+} */
+
 .labelOrder {
   color: white;
   -webkit-text-stroke: 0.3px rgb(0, 255, 98);

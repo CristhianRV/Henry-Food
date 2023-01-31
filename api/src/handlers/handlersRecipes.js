@@ -33,7 +33,6 @@ const recipeId = async (req, res) => {
 };
 
 const createRecipe = async (req, res) => {
-  console.log("Llegue a crear");
   const { name, description, healthScore, preparation, diets, image } =
     req.body;
 
@@ -48,6 +47,7 @@ const createRecipe = async (req, res) => {
     );
     res.status(201).send("Creado con exito!");
   } catch (error) {
+    // if (!name) return res.status(400).send("Missing name");
     res.status(400).json({ error: error.message });
   }
 };

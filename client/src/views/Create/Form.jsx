@@ -2,54 +2,110 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./Form.module.css";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Form = () => {
+  //estados del formulario
+  const allDiets = useSelector((state) => state.diets);
   const [form, setForm] = useState({
     name: "",
     description: "",
     healthScore: 0,
     preparation: "",
-    diets: "",
+    diets: [],
     image: "",
   });
+  //estados de los check
+  const [dietas, setDiets] = useState({
+    "gluten free": false,
+    paleolithic: false,
+    vegetarian: false,
+    "lacto ovo vegetarian": false,
+    vegan: false,
+    pescatarian: false,
+    primal: false,
+    "whole 30": false,
+    "fodmap friendly": false,
+    dairyFree: false,
+  });
+
+  //Estado para agregar las propiedades que se enviarán
 
   const handleChange = (event) => {
+    setForm({
+      ...form,
+      name: "",
+      description: "",
+    });
+
     const property = event.target.name;
     const value = event.target.value;
-
     setForm({
       ...form,
       [property]: value,
     });
   };
 
+  //Comprobando que recetas se ingresaran
+
+  const handlerCheck = (event) => {
+    const value = event.target.value;
+    setDiets({ ...dietas, [value]: !dietas[value] });
+    form.diets.includes(value)
+      ? setForm({
+          ...form,
+          diets: form.diets.filter((element) => element !== value),
+        })
+      : setForm({
+          ...form,
+          diets: [...form.diets, value],
+        });
+  };
+
   const handleForm = async (event) => {
     event.preventDefault();
     if (!form.name) delete form.name;
     if (!form.description) delete form.description;
-    console.log(form);
-    // axios
-    //   .post("/recipes", form)
-    //   .then((res) => alert(res.data))
-    //   .catch((err) => alert(err.message));
-    // //clean form
-    // setForm({
-    //   ...form,
-    //   name: "",
-    //   description: "",
-    //   healthScore: 0,
-    //   preparation: "",
-    //   diets: "",
-    //   image: "",
-    // });
+    axios
+      .post("/recipes", form)
+      .then((res) => alert(res.data))
+      .catch((err) => alert(err.response.data.error));
+    //clean form
+    setForm({
+      ...form,
+      name: "",
+      description: "",
+      healthScore: 0,
+      preparation: "",
+      diets: [],
+      image: "",
+    });
+
+    setDiets({
+      ...dietas,
+      "gluten free": false,
+      paleolithic: false,
+      vegetarian: false,
+      "lacto ovo vegetarian": false,
+      vegan: false,
+      pescatarian: false,
+      primal: false,
+      "whole 30": false,
+      "fodmap friendly": false,
+      dairyFree: false,
+    });
   };
 
   return (
     <div className={style.containerForm}>
       <div>
+        {/* boton para volver al home */}
+
         <Link to="/home">
           <div className={style.btnRetroceder}></div>
         </Link>
+
+        {/* FORMULARIO */}
       </div>
       <div className={style.contForm}>
         <p className={style.titulo}>Crea tu propia receta!</p>
@@ -76,17 +132,15 @@ const Form = () => {
           <div className={style.info}>
             <label className={style.label}>Health Score </label>
             <input
-              className={form.healthScore ? style.great : style.failed}
-              type="number"
+              className={style.intRange}
               onChange={handleChange}
               value={form.healthScore}
               name="healthScore"
-
-              // className={style.intRange}
-              // type="range"
-              // min="0"
-              // max="100"
-            ></input>
+              min="0"
+              max="100"
+              type="range"
+            />
+            <span className={style.healthScore}>{form.healthScore}</span>
           </div>
           <div className={style.info}>
             <label className={style.label}>Preparation </label>
@@ -99,42 +153,22 @@ const Form = () => {
           </div>
           <div className={style.info}>
             <label className={style.label}>Types Diets </label>
-            <select
-              name="diets"
-              className={style.select}
-              onChange={handleChange}
-            >
-              <option value="dairyFree" type="checkbox">
-                DairyFree{" "}
-              </option>
-              <option value="paleolithic" type="checkbox">
-                Paleolithic
-              </option>
-              <option value="vegan" type="checkbox">
-                Vegan
-              </option>
-              <option value="whole 30" type="checkbox">
-                Whole 30
-              </option>
-              <option value="pescatarian" type="checkbox">
-                Pescatarian
-              </option>
-              <option value="lacto ovo vegetarian" type="checkbox">
-                Lacto ovo vegetarian
-              </option>
-              <option value="gluten free" type="checkbox">
-                Gluten Free
-              </option>
-              <option value="vegetarian" type="checkbox">
-                Vegetarian
-              </option>
-              <option value="fodmap friendly" type="checkbox">
-                Fodmap Friendly
-              </option>
-              <option value="primal" type="checkbox">
-                Primal
-              </option>
-            </select>
+            <div className={style.checkBoxFather}>
+              {allDiets.map((element) => {
+                return (
+                  <div className={style.checkBox} key={element.id}>
+                    <input
+                      type="checkbox"
+                      name="diets"
+                      value={element.name}
+                      onChange={handlerCheck}
+                      checked={dietas[element.name]}
+                    />
+                    {element.name}
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className={style.info}>

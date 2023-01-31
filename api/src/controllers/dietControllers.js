@@ -15,7 +15,9 @@ const ListDiets = async () => {
     "dairyFree",
   ];
 
-  diets.forEach(async (diet) => Diet.create({ name: diet }));
+  diets.forEach(
+    async (diet) => await Diet.findOrCreate({ where: { name: diet } })
+  );
 };
 
 const getDiets = async () => {

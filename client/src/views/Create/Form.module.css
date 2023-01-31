@@ -1,19 +1,6 @@
-/* .containerForm {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  background-color: #0a0f176c;
-  opacity: 0.98;
-  z-index: 300;
-  user-select: none;
-} */
-
 .containerForm {
   background-image: url(../../../img/fondo_formulario.png);
-  height: 100vh;
+  min-height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   /* background-attachment: fixed; */
@@ -22,11 +9,13 @@
 }
 
 .btnRetroceder {
+  position: absolute;
   background-image: url(../../../img/retroceder.png);
   min-height: 64px;
+  min-width: 64px;
   background-repeat: no-repeat;
-  margin-right: 0%;
-  margin-left: 25px;
+  left: 30px;
+  top: 80px;
 }
 @media (min-width: 1200px) {
   .titulo {
@@ -65,29 +54,53 @@
 .failed {
   border: 1px solid red;
   width: 500px;
-  height: 30px;
+  height: 20px;
+  font-size: 12px;
+  font-family: Kavoon;
 }
 
 .great {
   border: 1px solid green;
   width: 500px;
-  height: 30px;
+  height: 20px;
+  font-size: 12px;
+  font-family: Kavoon;
 }
 
 .failedArea {
   border: 1px solid red;
   width: 500px;
-  height: 45px;
+  height: 70px;
+  resize: none;
+  font-size: 12px;
+  font-family: Kavoon;
 }
+
 .greatArea {
   border: 1px solid green;
   width: 500px;
-  height: 100px;
+  height: 70px;
+  resize: none;
+  font-size: 12px;
+  font-family: Kavoon;
 }
-.select {
-  width: 500px;
-  height: 30px;
-  font-size: 15px;
+
+.healthScore {
+  color: rgb(5, 198, 5);
+  font-family: Kavoon;
+}
+.intRange {
+}
+.checkBoxFather {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  /* grid-template-rows: ; */
+}
+.checkBox {
+  display: flex;
+  flex-direction: row;
+  font-family: Righteous;
 }
 
 .btnForm {
@@ -99,6 +112,7 @@
   color: white;
   border: 1px solid white;
   border-radius: 20px;
+  margin-bottom: 5em;
 }
 .btnForm:hover {
   background-color: rgb(2, 182, 2);
@@ -107,33 +121,4 @@
   background-color: rgb(68, 209, 68);
 }
 
-.intRange {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 0.4em;
-  border-radius: 3px;
-  background: #04ba1c;
-  box-shadow: 3px 3px 3px #000, inset 1px 1px 1px #5e8065;
-}
-/*
-.intRange::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 1.7em;
-  height: 1.7em;
-  cursor: pointer;
-  z-index: 3;
-  position: relative;
-}
-.intRange {
-  position: absolute;
-  width: 1.7em;
-  height: 1.7em;
-  background: #005a0c;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50, -50);
-  z-index: 2;
-  box-shadow: 0px 1px 2px #005a0c;
-} */
 /******************************************************************************************    */

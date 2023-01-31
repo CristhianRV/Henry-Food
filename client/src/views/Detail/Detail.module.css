@@ -4,27 +4,55 @@
   margin: 2em;
 }
 
-.titulo {
-  color: rgba(9, 163, 79, 0.877);
+.btnRetroceder {
+  position: absolute;
+  background-image: url(../../../img/retroceder.png);
+  min-height: 64px;
+  min-width: 64px;
+  background-repeat: no-repeat;
+  left: 30px;
 }
 
-/* img {
+.titulo {
+  color: rgba(9, 163, 79, 0.877);
+  font-family: Kavoon;
+}
+
+.contImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
   margin: 1em;
   border-radius: 10px;
-  width: 50em;
-  height: 30em;
-} */
+  max-width: 50em;
+  max-height: 50em;
+}
 
 .containerText {
   display: flex;
   flex-direction: column;
   margin: 2em;
-  justify-content: center;
+  justify-content: flex-start;
 }
-/* h1 {
-  margin-left: 10em;
-  font-size: 85px;
-}
-p {
+
+.parraLargo {
+  font-family: Itim;
   font-size: 20px;
-} */
+}
+.parraCorto {
+  font-family: Itim;
+  font-size: 20px;
+}
+
+.contDiets {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.dietas {
+  font-family: Itim;
+  font-size: 20px;
+  color: rgb(5, 174, 5);
+}
