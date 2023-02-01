@@ -5,6 +5,7 @@ import {
   GET_DIETS,
   GET_FILTER,
   ORDERED_RECIPES,
+  GET_LOADING,
 } from "./actions";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   diets: [],
   recipe: {},
   ordered: true,
+  loading: false,
 };
 
 const rootReducer = (state = initialState, actions) => {
@@ -52,6 +54,12 @@ const rootReducer = (state = initialState, actions) => {
       return {
         ...state,
         ordered: !state.ordered,
+      };
+
+    case GET_LOADING:
+      return {
+        ...state,
+        loading: actions.payload,
       };
 
     default:

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 10px solid green;
+  border-top: solid 10px rgb(5, 212, 5);
+  border-radius: 50%;
+  animation: loader 0.8s linear infinite;
+  left: 48em;
+  top: 19em;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.message {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  font-family: Kavoon;
+  top: 19.2em;
+  left: 40em;
+  animation: message 1s alternate infinite ease-in-out;
+}
+
+@keyframes message {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.image {
+  background-image: url(../../../img/comida.png);
+  min-width: 120px;
+  min-height: 120px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 21em;
+  left: 51em;
+  animation: image 1.5s alternate infinite ease-in-out;
+}
+
+@keyframes image {
+  0% {
+    transform: rotate(-50deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(50deg);
+    opacity: 1;
+  }
+}

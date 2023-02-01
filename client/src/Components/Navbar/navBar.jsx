@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 import { useDispatch } from "react-redux";
-import { getRecipesName } from "../../redux/actions";
+import { getRecipesName, getLoading } from "../../redux/actions";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ const NavBar = () => {
       ...value,
       input: valueInt,
     });
-    dispatch(getRecipesName(event.target.value));
   };
 
   const handleSearch = (event) => {
@@ -26,6 +25,10 @@ const NavBar = () => {
       ...value,
       input: "",
     });
+    dispatch(getLoading(true));
+    dispatch(getRecipesName(event.target.value)).then(() =>
+      dispatch(getLoading(false))
+    );
   };
 
   return (

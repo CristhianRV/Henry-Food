@@ -7,6 +7,7 @@ export const GET_RECIPE_ID = "GET_RECIPE_ID";
 export const GET_DIETS = "GET_DIETS";
 export const GET_FILTER = "GET_FILTER";
 export const ORDERED_RECIPES = "ORDERED_RECIPES";
+export const GET_LOADING = "GET_LOADING";
 
 export const getRecipes = () => {
   return async function (dispatch) {
@@ -37,4 +38,8 @@ export const filterRecipes = (data) => {
 
 export const recipesOrder = () => {
   return { type: ORDERED_RECIPES };
+};
+
+export const getLoading = (solicitud) => {
+  return { type: GET_LOADING, payload: solicitud };
 };

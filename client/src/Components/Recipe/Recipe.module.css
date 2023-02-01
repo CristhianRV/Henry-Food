@@ -5,16 +5,37 @@
   flex-direction: column;
   width: 20em;
   height: 24em;
-  border: 1px solid rgb(179, 245, 201);
+  border: 2px solid rgb(179, 245, 201);
   border-radius: 15px;
+}
+
+.name {
+  margin: 0px;
+}
+
+.allDiets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* margin-bottom: 10px; */
+  justify-content: space-between;
 }
 
 .diets {
   color: rgb(145, 208, 153);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 3px;
+  font-size: 12px;
 }
 .image {
   border-radius: 10px;
-  margin-top: 1px;
+  margin-top: 3px;
   margin-left: 0px;
   margin-right: 0px;
+  max-height: 300px;
+  max-width: 315px;
 }

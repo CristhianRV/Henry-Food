@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipeId } from "../../redux/actions";
+import { getRecipeId, getLoading } from "../../redux/actions";
 import style from "./Detail.module.css";
 
 const Detail = () => {
@@ -9,7 +9,8 @@ const Detail = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRecipeId(id));
+    dispatch(getLoading(true));
+    dispatch(getRecipeId(id)).then(() => dispatch(getLoading(false)));
   }, [id]);
 
   const recipe = useSelector((state) => state.recipe);

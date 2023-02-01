@@ -5,13 +5,15 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import NavBar from "./Components/Navbar/NavBar";
 import { getRecipes } from "./redux/actions";
+import { getLoading } from "./redux/actions";
 
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRecipes());
+    dispatch(getLoading(true));
+    dispatch(getRecipes()).then(() => dispatch(getLoading(false)));
   }, [dispatch]);
 
   return (

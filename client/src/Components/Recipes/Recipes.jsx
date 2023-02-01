@@ -17,7 +17,7 @@ class Recipes extends Component {
               name={recipe.name}
               description={recipe.description}
               healtScore={recipe.healthScore}
-              diets={recipe.diets}
+              diets={recipe.Diets ? recipe.Diets : recipe.diets}
               image={recipe.image}
             />
           );

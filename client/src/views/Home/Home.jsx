@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import Pagination from "../../Components/Pagination/Pagination";
 import Filter from "../../Components/Filter/Filter";
 import style from "./Home.module.css";
+import Loading from "../../Components/Loading/Loading";
 
 const Home = () => {
+  const loading = useSelector((state) => state.loading);
   const allRe = useSelector((state) => state.recipesFilters);
   const ordered = useSelector((state) => state.ordered);
 
@@ -46,7 +48,7 @@ const Home = () => {
           <Filter />
         </div>
         <div>
-          <Recipes recipes={recetas} />
+          {loading ? <Loading /> : <Recipes recipes={recetas} />}
           <Pagination
             handlerNext={handlerNext}
             handlerPre={handlerPre}

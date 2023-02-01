@@ -15,6 +15,25 @@ const cleanApi = (api) => {
   return array;
 };
 
+// const cleanBDD = (bdd) => {
+//   const newBDD = [...JSON.stringify(bdd)];
+//   const resultado = [];
+
+// newBDD.forEach((element) => console.log(element));
+// for (let index of newBDD) {
+// console.log(index);
+// index.Diets?.forEach((element) => {
+//   console.log(element);
+// resultado.push(element.name);
+// });
+// index.diets = resultado;
+// delete index.Diets;
+// resultado = [];
+// }
+//   console.log(newBDD);
+// };
+
 module.exports = {
   cleanApi,
+  // cleanBDD,
 };
